@@ -2,7 +2,10 @@ class Api::V1::BooksController < ApplicationController
   def index
     books = Book.all
     # render json: books
-    render json: BookSerializer.new(books)
+    # render json: BookSerializer.new(books)
+    render json: BookSerializer.new(books).to_serialized_json_book, status: :accepted
+ 
+    
   end
 
   def create
