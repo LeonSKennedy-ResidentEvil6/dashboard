@@ -4,10 +4,11 @@ const REVIEWS_URL = `${BASE_URL}/reviews`
 
 document.addEventListener('DOMContentLoaded', () => {
     getBooks()
+    createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
 });
 
 const addBookBtn = document.querySelector('#new-book-btn')
-const bookForm = document.querySelector('.book-container')
+const createBookForm = document.querySelector('#add-book-form')
 let bookCollection = document.querySelector('#book-collection')
 
 async function getBooks() {
@@ -40,10 +41,14 @@ async function renderBooks(book) {
             <h2>${book.author}</h2>
             <h2>${book.category}</h2>
             <h2>${book.description}</h2>
-            <h2>${book.reviews.forEach(function(review) { return review.comment })}</h2>
+            <h2>${book.reviews.forEach(review => console.log(review.comment))}</h2>
         </div>
         <br>`;
         // book.reviews.comment is undefined
         bookCollection.innerHTML += bookMarkup
 }
 
+function createFormHandler(evnt) {
+    evnt.preventDefault()
+    console.log(evnt);
+}
