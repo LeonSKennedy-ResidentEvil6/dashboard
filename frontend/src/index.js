@@ -6,21 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     getBooks()
 });
 
-const bookContainer = document.querySelector(".card")
+const addBookBtn = document.querySelector('#new-book-btn')
+const bookForm = document.querySelector('.book-container')
+let bookCollection = document.querySelector('#book-collection')
 
 async function getBooks() {
     fetch(BOOKS_URL)
         .then(response => response.json())
+        .then(books => {
+            books.forEach(book => { 
+                renderBooks(book) 
+            })
+        })
         .catch((error) => {
             alert(error.message);
         });
 }
 
-async function renderBooks(books) {
-    books.forEach(function(book) {
-        let div = document.createElement('div');
-        div.setAttribute('class', 'card');
-        div.setAttribute('book-id', book.id)
+// getBooks().then(books => {
+//     books.forEach(book => { 
+//         renderBooks(book) 
+//     })
+// })
+
+async function renderBooks(book) {
 
         let title = document.createElement('p');
         title.innerText = book.title
@@ -41,8 +50,10 @@ async function renderBooks(books) {
             li.innerText = review.comment
             ul.appendChild(li)
         })
-        div.append(title, author, description, category, ul)
-        bookContainer.appendChild(div)
-    })
+
+        let divCard = document.createElement('div')
+        divCard.setAttribute('class', 'card')
+        divCard.append(title, author, description, category, ul)
+        bookCollection.appendChild(divCard)
 }
 
