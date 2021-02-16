@@ -11,13 +11,12 @@ const bookContainer = document.querySelector(".card")
 async function getBooks() {
     fetch(BOOKS_URL)
         .then(response => response.json())
-        .then(books => loadBooks(books))
         .catch((error) => {
             alert(error.message);
         });
 }
 
-async function loadBooks(books) {
+async function renderBooks(books) {
     books.forEach(function(book) {
         let div = document.createElement('div');
         div.setAttribute('class', 'card');

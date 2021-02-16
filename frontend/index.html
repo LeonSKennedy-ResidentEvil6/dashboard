@@ -2,25 +2,35 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Dashboard</title>
+    <script type="text/javascript" src="./src/index.js"></script>
+    <link rel="stylesheet" href="./src/index.css">
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <p class="navbar-brand">Nav Bar</p>
-        </div>
-      </div>
-    </nav>
-
-    <div id="book-container">
-      
+    <div id='dashboard-header'>
+      <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="dashboard-header">
     </div>
 
-   <p>Welcome to the dashboard! under construction...</p>
+    <div class="book-container">
+      <form class="add-book-form">
+        <h3>Add a book</h3>
+        <p style="text-align: left">This is a great book!</p> 
+        <input type="text" name="title" value="title" placeholder="Enter a book's title" class="input-text">
+        <br>
+        <input type="text" name="author" value="author" placeholder="Enter a book's author" class="input-text">
+        <br>
+        <input type="text" name="category" value="category" placeholder="Enter a book's category" class="input-text">
+        <br>
+        <input type="text" name="description" value="description" placeholder="Enter a book's description" class="input-text">
+        <br>
+        <input type="submit" name="submit" value="Create a new book" class="submit">
+      </form>
+    </div>
+    <button id='new-book-btn'>Add a new book</button>
 
-   <script type="text/javascript" src="./src/index.js"></script>
+    <div id="book-collection">
+    </div>
 
   </body>
 
