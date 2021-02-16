@@ -11,16 +11,19 @@ const bookForm = document.querySelector('.book-container')
 let bookCollection = document.querySelector('#book-collection')
 
 async function getBooks() {
+    // using preventDefault to stop invalid text input from reaching input field
     fetch(BOOKS_URL)
         .then(response => response.json())
         .then(books => {
+            if(books.message) {
+                alert(books.message)
+            } else 
             books.forEach(book => { 
+                // let newBook = new book(book)
                 renderBooks(book) 
             })
         })
-        .catch((error) => {
-            alert(error.message);
-        });
+        .catch((error) => alert(error.message));
 }
 
 // getBooks().then(books => {
@@ -30,30 +33,17 @@ async function getBooks() {
 // })
 
 async function renderBooks(book) {
-
-        let title = document.createElement('p');
-        title.innerText = book.title
-
-        let author = document.createElement('p');
-        author.innerText = book.author
-
-        let description = document.createElement('p');
-        description.innerText = book.description
-
-        let category = document.createElement('p');
-        category.innerText = book.category
-
-        let ul = document.createElement('ul')
-        let reviews = book.reviews
-        reviews.forEach(function(review) {
-            let li = document.createElement('li');
-            li.innerText = review.comment
-            ul.appendChild(li)
-        })
-
-        let divCard = document.createElement('div')
-        divCard.setAttribute('class', 'card')
-        divCard.append(title, author, description, category, ul)
-        bookCollection.appendChild(divCard)
+    // debugger
+    const bookMarkup = `
+        <div book-id=${book.id}>
+            <h2>${book.title}</h2>
+            <h2>${book.author}</h2>
+            <h2>${book.category}</h2>
+            <h2>${book.description}</h2>
+            <h2>${book.reviews.forEach(function(review) { return review.comment })}</h2>
+        </div>
+        <br>`;
+        // book.reviews.comment is undefined
+        bookCollection.innerHTML += bookMarkup
 }
 
