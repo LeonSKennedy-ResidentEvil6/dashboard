@@ -41,6 +41,9 @@ async function renderBooks(book) {
             <h2>Author: ${book.author}</h2>
             <h2>Category: ${book.category}</h2>
             <h2>Description: ${book.description}</h2>
+            <h2>Image: ${book.image}</h2>
+            <h2>Rating: ${book.rating}</h2>
+            <h2>likes: ${book.likes}</h2>
             <h2>Reviews: ${book.reviews.forEach(review => console.log(review.comment))}</h2>
         </div>
         <br>`;
