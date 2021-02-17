@@ -57,15 +57,11 @@ function createFormHandler(evnt) {
 }
 
 function postBook(title, author, category, description) {
+   const newBook = {title, author, category, description}
    fetch(BOOKS_URL, {
        method: "POST",
        headers: {"Content-Type": "application/json"},
-       body: JSON.stringify({
-           title: title,
-           author: author,
-           category: category,
-           description: description
-       })
+       body: JSON.stringify(newBook)
    })
    .then(response => response.json())
    .then(book => {
