@@ -11,3 +11,5 @@ class Book {
         Book.all.push(this)
     }
 }
+
+book = Book.new(id, bookArributes)
