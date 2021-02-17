@@ -66,16 +66,7 @@ function postBook(title, author, category, description) {
    })
    .then(response => response.json())
    .then(book => {
-        const bookMarkup = `
-        <div book-id=${book.id}>
-            <h2>Title: ${book.title}</h2>
-            <h2>Author: ${book.author}</h2>
-            <h2>Category: ${book.category}</h2>
-            <h2>Description: ${book.description}</h2>
-            <h2>Reviews: ${book.reviews.forEach(review => console.log(review.comment))}</h2>
-        </div>
-        <br>`;
-        // book.reviews.comment is undefined
-        bookCollection.innerHTML += bookMarkup
+       console.log(book)
+       renderBooks(book)
    })
 }
