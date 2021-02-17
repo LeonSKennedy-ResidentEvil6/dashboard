@@ -57,5 +57,18 @@ function createFormHandler(evnt) {
 }
 
 function postBook(title, author, category, description) {
-    console.log(title, author, category, description);
+   fetch(BOOKS_URL, {
+       method: "POST",
+       headers: {"Content-Type": "application/json"},
+       body: JSON.stringify({
+           title: title,
+           author: author,
+           category: category,
+           description: description
+       })
+   })
+   .then(response => response.json())
+   .then(book => {
+       console.log(book);
+   })
 }
