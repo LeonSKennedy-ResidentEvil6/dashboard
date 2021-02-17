@@ -66,7 +66,8 @@ function postBook(title, author, category, description) {
    })
    .then(response => response.json())
    .then(book => {
-       console.log(book)
+    //    console.log(book)
        renderBooks(book)
    })
+   .catch((error) => alert(error.message));
 }
