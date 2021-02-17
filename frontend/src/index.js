@@ -3,6 +3,7 @@ const BOOKS_URL = `${BASE_URL}/books`
 const REVIEWS_URL = `${BASE_URL}/reviews`
 
 document.addEventListener('DOMContentLoaded', () => {
+    // when the page is load, what DOM I want to manipulate? load books
     getBooks()
     createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
 });
@@ -36,11 +37,11 @@ async function renderBooks(book) {
     // debugger
     const bookMarkup = `
         <div book-id=${book.id}>
-            <h2>${book.title}</h2>
-            <h2>${book.author}</h2>
-            <h2>${book.category}</h2>
-            <h2>${book.description}</h2>
-            <h2>${book.reviews.forEach(review => console.log(review.comment))}</h2>
+            <h2>Title: ${book.title}</h2>
+            <h2>Author: ${book.author}</h2>
+            <h2>Category: ${book.category}</h2>
+            <h2>Description: ${book.description}</h2>
+            <h2>Reviews: ${book.reviews.forEach(review => console.log(review.comment))}</h2>
         </div>
         <br>`;
         // book.reviews.comment is undefined
@@ -65,6 +66,16 @@ function postBook(title, author, category, description) {
    })
    .then(response => response.json())
    .then(book => {
-       console.log(book);
+        const bookMarkup = `
+        <div book-id=${book.id}>
+            <h2>Title: ${book.title}</h2>
+            <h2>Author: ${book.author}</h2>
+            <h2>Category: ${book.category}</h2>
+            <h2>Description: ${book.description}</h2>
+            <h2>Reviews: ${book.reviews.forEach(review => console.log(review.comment))}</h2>
+        </div>
+        <br>`;
+        // book.reviews.comment is undefined
+        bookCollection.innerHTML += bookMarkup
    })
 }
