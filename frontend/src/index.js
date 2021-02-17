@@ -12,7 +12,6 @@ const createBookForm = document.querySelector('#add-book-form')
 let bookCollection = document.querySelector('#book-collection')
 
 async function getBooks() {
-    // using preventDefault to stop invalid text input from reaching input field
     fetch(BOOKS_URL)
         .then(response => response.json())
         .then(books => {
@@ -57,4 +56,6 @@ function createFormHandler(evnt) {
     postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput)
 }
 
-function postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput)
+function postBook(title, author, category, description) {
+    console.log(title, author, category, description);
+}
