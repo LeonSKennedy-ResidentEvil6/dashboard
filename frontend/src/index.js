@@ -50,5 +50,11 @@ async function renderBooks(book) {
 
 function createFormHandler(evnt) {
     evnt.preventDefault()
-    console.log(evnt);
+    const bookTitleInput = document.querySelector("#input-title").value
+    const bookAuthorInput = document.querySelector("#input-author").value
+    const bookCategoryInput = document.querySelector("#input-category").value
+    const bookDescriptionInput = document.querySelector("#input-description").value
+    postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput)
 }
+
+function postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput)
