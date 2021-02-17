@@ -1,6 +1,6 @@
 class BookSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :author, :category, :description, :reviews
+  attributes :title, :author, :category, :description, :image, :rating, :likes, :reviews
 
   def initialize(book_object)
     @book = book_object
