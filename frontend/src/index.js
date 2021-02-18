@@ -27,7 +27,6 @@ async function getBooks() {
         .catch((error) => alert(error.message));
 }
 
-
 function createFormHandler(evnt) {
     evnt.preventDefault()
     const bookTitleInput = document.querySelector("#input-title").value
@@ -42,8 +41,6 @@ function createFormHandler(evnt) {
 
 function postBook(title, author, category, description, image, rating, likes) {
 
-    // fix: image , rating, likes are null..
-    // add features to refresh the page once new book is added
    const newBook = {title, author, category, description, image, rating, likes}
    fetch(BOOKS_URL, {
        method: "POST",
@@ -52,9 +49,9 @@ function postBook(title, author, category, description, image, rating, likes) {
    })
    .then(response => response.json())
    .then(book => {
-        debugger
         let addBook = new Book(book, book.reviews)
         bookCollection.innerHTML += addBook.renderBooks()
+        createBookForm.reset()
    })
    .catch((error) => alert(error.message));
 }

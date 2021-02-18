@@ -5263,3 +5263,932 @@ Processing by Api::V1::BooksController#create as */*
 Completed 202 Accepted in 23ms (Views: 0.2ms | ActiveRecord: 11.2ms | Allocations: 3698)
 
 
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:38:22 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"Book_test_3", "author"=>"Author_test_3", "category"=>"category_test_3", "description"=>"description_test_3", "image"=>"http://www.imagetest3.com/jpeg3", "rating"=>"761", "likes"=>"4", "book"=>{"title"=>"Book_test_3", "author"=>"Author_test_3", "category"=>"category_test_3", "description"=>"description_test_3", "image"=>"http://www.imagetest3.com/jpeg3", "rating"=>"761", "likes"=>"4"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Book_test_3"], ["author", "Author_test_3"], ["category", "category_test_3"], ["description", "description_test_3"], ["created_at", "2021-02-18 17:38:22.946390"], ["updated_at", "2021-02-18 17:38:22.946390"], ["image", "http://www.imagetest3.com/jpeg3"], ["rating", 761], ["likes", 4]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 9ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 3419)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:38:34 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:38:34 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>{"isTrusted"=>true}, "book"=>{"title"=>{"isTrusted"=>true}}}
+[31mUnpermitted parameter: :title[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (1.2ms)[0m  [1m[32mINSERT INTO "books" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-02-18 17:38:34.645583"], ["updated_at", "2021-02-18 17:38:34.645583"]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 26ms (Views: 0.2ms | ActiveRecord: 6.5ms | Allocations: 3835)
+
+
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 130ms (Views: 0.2ms | ActiveRecord: 4.4ms | Allocations: 25633)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:38:38 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"", "author"=>"", "category"=>"", "description"=>"", "image"=>"", "rating"=>"", "likes"=>"", "book"=>{"title"=>"", "author"=>"", "category"=>"", "description"=>"", "image"=>"", "rating"=>"", "likes"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", ""], ["author", ""], ["category", ""], ["description", ""], ["created_at", "2021-02-18 17:38:38.547112"], ["updated_at", "2021-02-18 17:38:38.547112"], ["image", ""]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 9ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 3383)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:42:42 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"1", "author"=>"2", "category"=>"3", "description"=>"4", "image"=>"5", "rating"=>"5", "likes"=>"6", "book"=>{"title"=>"1", "author"=>"2", "category"=>"3", "description"=>"4", "image"=>"5", "rating"=>"5", "likes"=>"6"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "1"], ["author", "2"], ["category", "3"], ["description", "4"], ["created_at", "2021-02-18 17:42:42.531748"], ["updated_at", "2021-02-18 17:42:42.531748"], ["image", "5"], ["rating", 5], ["likes", 6]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 8ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 3398)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:42:54 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (5.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 88ms (Views: 0.2ms | ActiveRecord: 8.4ms | Allocations: 18804)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:47:34 -0800
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::BooksController#index as HTML
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 315ms (Views: 1.5ms | ActiveRecord: 7.5ms | Allocations: 33654)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:47:50 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 144ms (Views: 0.3ms | ActiveRecord: 5.7ms | Allocations: 18820)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:48:24 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"2", "author"=>"auth", "category"=>"cate", "description"=>"des", "image"=>"image.com/1", "rating"=>"333", "likes"=>"123", "book"=>{"title"=>"2", "author"=>"auth", "category"=>"cate", "description"=>"des", "image"=>"image.com/1", "rating"=>"333", "likes"=>"123"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (2.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "2"], ["author", "auth"], ["category", "cate"], ["description", "des"], ["created_at", "2021-02-18 17:48:24.548903"], ["updated_at", "2021-02-18 17:48:24.548903"], ["image", "image.com/1"], ["rating", 333], ["likes", 123]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 33ms (Views: 0.4ms | ActiveRecord: 13.7ms | Allocations: 3696)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:50:03 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 52ms (Views: 0.1ms | ActiveRecord: 4.1ms | Allocations: 19797)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:50:37 -0800
+Processing by Api::V1::BooksController#index as HTML
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 92ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 19776)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:54:57 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 98ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 19797)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:54:59 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 72ms (Views: 0.1ms | ActiveRecord: 4.1ms | Allocations: 19779)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:55:00 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (12.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 152ms (Views: 0.1ms | ActiveRecord: 16.7ms | Allocations: 19782)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:55:02 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (2.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (15.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 102ms (Views: 0.1ms | ActiveRecord: 23.0ms | Allocations: 19778)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:55:03 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (2.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 60ms (Views: 0.1ms | ActiveRecord: 6.7ms | Allocations: 19778)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:55:05 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (2.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (11.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 206ms (Views: 0.2ms | ActiveRecord: 20.4ms | Allocations: 19778)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:56:09 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (5.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 149ms (Views: 0.2ms | ActiveRecord: 10.0ms | Allocations: 19778)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:56:53 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"1234", "author"=>"Pet", "category"=>"myth", "description"=>"nice", "image"=>"image.com/test/reload", "rating"=>"999", "likes"=>"123", "book"=>{"title"=>"1234", "author"=>"Pet", "category"=>"myth", "description"=>"nice", "image"=>"image.com/test/reload", "rating"=>"999", "likes"=>"123"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (3.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "1234"], ["author", "Pet"], ["category", "myth"], ["description", "nice"], ["created_at", "2021-02-18 17:56:53.582247"], ["updated_at", "2021-02-18 17:56:53.582247"], ["image", "image.com/test/reload"], ["rating", 999], ["likes", 123]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 18ms (Views: 2.6ms | ActiveRecord: 5.9ms | Allocations: 3400)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:57:08 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (11.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (1.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 187ms (Views: 0.1ms | ActiveRecord: 17.7ms | Allocations: 20758)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:57:37 -0800
+Processing by Api::V1::BooksController#index as HTML
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 62ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 20753)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:58:31 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"reload after submit?", "author"=>"user", "category"=>"none", "description"=>"testing reload after create", "image"=>"none.com/image", "rating"=>"0", "likes"=>"1", "book"=>{"title"=>"reload after submit?", "author"=>"user", "category"=>"none", "description"=>"testing reload after create", "image"=>"none.com/image", "rating"=>"0", "likes"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (1.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "reload after submit?"], ["author", "user"], ["category", "none"], ["description", "testing reload after create"], ["created_at", "2021-02-18 17:58:31.989603"], ["updated_at", "2021-02-18 17:58:31.989603"], ["image", "none.com/image"], ["rating", 0], ["likes", 1]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 21]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 21ms (Views: 0.2ms | ActiveRecord: 9.0ms | Allocations: 3400)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 09:58:35 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 21]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 186ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 21734)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 10:03:20 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 21]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 156ms (Views: 0.2ms | ActiveRecord: 8.7ms | Allocations: 21734)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2021-02-18 10:05:43 -0800
+Processing by Api::V1::BooksController#index as */*
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 13]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 14]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 15]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 16]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 17]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 18]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 19]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 20]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 21]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 152ms (Views: 0.1ms | ActiveRecord: 5.3ms | Allocations: 21734)
+
+
+Started POST "/api/v1/books" for 127.0.0.1 at 2021-02-18 10:06:20 -0800
+Processing by Api::V1::BooksController#create as */*
+  Parameters: {"title"=>"999", "author"=>"no author", "category"=>"will it reload?", "description"=>"refresh pls", "image"=>"no", "rating"=>"1.4", "likes"=>"11113333444", "book"=>{"title"=>"999", "author"=>"no author", "category"=>"will it reload?", "description"=>"refresh pls", "image"=>"no", "rating"=>"1.4", "likes"=>"11113333444"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "category", "description", "created_at", "updated_at", "image", "rating", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "999"], ["author", "no author"], ["category", "will it reload?"], ["description", "refresh pls"], ["created_at", "2021-02-18 18:06:20.432238"], ["updated_at", "2021-02-18 18:06:20.432238"], ["image", "no"], ["rating", 1], ["likes", 11113333444]]
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/books_controller.rb:11:in `create'
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 22]]
+  ↳ app/serializers/book_serializer.rb:18:in `to_serialized_json_book'
+Completed 202 Accepted in 11ms (Views: 0.1ms | ActiveRecord: 3.8ms | Allocations: 3403)
+
+
