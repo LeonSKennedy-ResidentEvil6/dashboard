@@ -16,6 +16,7 @@ class Book {
         return `
             <div book-id=${this.id}>
                 <h2>Title: ${this.title}</h2>
+                <button id="edit-btn">Edit This Book</button>
                 <h2>Author: ${this.author}</h2>
                 <h2>Category: ${this.category}</h2>
                 <h2>Description: ${this.description}</h2>

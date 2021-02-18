@@ -5,11 +5,13 @@ const REVIEWS_URL = `${BASE_URL}/reviews`
 const addBookBtn = document.querySelector('#new-book-btn')
 const createBookForm = document.querySelector('#add-book-form')
 let bookCollection = document.querySelector('#book-collection')
+let theBookEditBtn = document.querySelector('#edit-btn')
 
 document.addEventListener('DOMContentLoaded', () => {
     // when the page is load, what DOM I want to manipulate? load books
     getBooks()
     createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
+    theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
 });
 
 async function getBooks() {
@@ -58,17 +60,24 @@ function postBook(title, author, category, description, image, rating, likes) {
    .catch((error) => alert(error.message));
 }
 
-function editBook() {
+// contiune...
+// create a edit form handler (ddoes prevent default needed here?)
+// create a edit form for each book
+// pull that book info & store in variables
+// feed the variables in editbook -> fetch
+// create editbook function in book class object just like renderbooks above
+function editBook(title, author, category, description, image, rating, likes) {
+    const theBookToEdit = {title, author, category, description, image, rating, likes}
     fetch(BOOKS_URL + `/${id}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify()
+        body: JSON.stringify(theBookToEdit)
     })
     .then(response => response.json())
     .then(book => {
-
+        let editBook = 
     })
 }

@@ -20,6 +20,15 @@ class Api::V1::BooksController < ApplicationController
     render json: BookSerializer.new(book).to_serialized_json_book, status: :accepted
   end
 
+  def edit
+    book = Book.find_by(id: params[:id])
+    if book.save
+      render json: BookSerializer.new(book).to_serialized_json_book, status: :accepted
+    else
+      render json: { errors: book.errors.full_messages }, statues: :unprocessible_entity
+    end
+  end 
+
   private
 
   def books_params
