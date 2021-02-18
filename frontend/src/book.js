@@ -1,15 +1,31 @@
 class Book {
-    constructor(id, bookArributes) {
-        debugger
-        this.id = id;
-        this.title = bookArributes.title;
-        this.category = bookArributes.category;
-        this.description = bookArributes.description;
-        this.image = bookArributes.image
-        this.rating = bookArributes.rating
-        this.likes = bookArributes.likes
+    constructor(data, bookReviews) {
+        this.id = data.id;
+        this.title = data.title;
+        this.category = data.category;
+        this.description = data.description;
+        this.image = data.image
+        this.rating = data.rating
+        this.likes = data.likes
+        this.reviews = bookReviews.map(review => review.comment)
         Book.all.push(this)
+    }
+
+    renderBooks() {
+        // debugger
+        return `
+            <div book-id=${this.id}>
+                <h2>Title: ${this.title}</h2>
+                <h2>Author: ${this.author}</h2>
+                <h2>Category: ${this.category}</h2>
+                <h2>Description: ${this.description}</h2>
+                <h2>Image: ${this.image}</h2>
+                <h2>Rating: ${this.rating}</h2>
+                <h2>likes: ${this.likes}</h2>
+                <h2>Reviews: ${this.reviews.forEach(review => console.log(review.comment))}</h2>
+            </div>
+            <br>`;
     }
 }
 
-book = Book.new(id, bookArributes)
+Book.all = [];
