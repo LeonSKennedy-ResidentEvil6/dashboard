@@ -15,6 +15,11 @@ class Api::V1::BooksController < ApplicationController
     end
   end
 
+  def show
+    book = Book.find_by(id: params[:id])
+    render json: BookSerializer.new(book).to_serialized_json_book, status: :accepted
+  end
+
   private
 
   def books_params

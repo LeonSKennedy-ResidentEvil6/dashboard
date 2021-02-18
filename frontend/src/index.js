@@ -20,8 +20,8 @@ async function getBooks() {
                 alert(books.message)
             } else 
             books.forEach(book => { 
-                let newBook = new Book(book, book.reviews)
-                bookCollection.innerHTML += newBook.renderBooks()
+                let theBook = new Book(book, book.reviews)
+                bookCollection.innerHTML += theBook.renderBooks()
             })
         })
         .catch((error) => alert(error.message));
@@ -40,7 +40,6 @@ function createFormHandler(evnt) {
 }
 
 function postBook(title, author, category, description, image, rating, likes) {
-
    const newBook = {title, author, category, description, image, rating, likes}
    fetch(BOOKS_URL, {
        method: "POST",
