@@ -43,7 +43,10 @@ function postBook(title, author, category, description, image, rating, likes) {
    const newBook = {title, author, category, description, image, rating, likes}
    fetch(BOOKS_URL, {
        method: "POST",
-       headers: {"Content-Type": "application/json"},
+       headers: {
+           "Content-Type": "application/json",
+           "Accept": "application/json"
+        },
        body: JSON.stringify(newBook)
    })
    .then(response => response.json())
@@ -53,4 +56,19 @@ function postBook(title, author, category, description, image, rating, likes) {
         createBookForm.reset()
    })
    .catch((error) => alert(error.message));
+}
+
+function editBook() {
+    fetch(BOOKS_URL + `/${id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify()
+    })
+    .then(response => response.json())
+    .then(book => {
+
+    })
 }
