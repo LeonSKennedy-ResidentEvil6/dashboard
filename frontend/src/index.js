@@ -52,6 +52,7 @@ function postBook(title, author, category, description, image, rating, likes) {
    })
    .then(response => response.json())
    .then(book => {
+    debugger
         let addBook = new Book(book, book.reviews)
         bookCollection.innerHTML += addBook.renderBooks()
         createBookForm.reset()
@@ -66,7 +67,7 @@ function postBook(title, author, category, description, image, rating, likes) {
 // feed the variables in editbook -> fetch
 // create editbook function in book class object just like renderbooks above
 
-theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
+//theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
 
 function editBook(title, author, category, description, image, rating, likes) {
     const theBookToEdit = {title, author, category, description, image, rating, likes}
