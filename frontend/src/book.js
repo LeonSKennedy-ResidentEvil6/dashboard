@@ -1,5 +1,5 @@
 class Book {
-    constructor(data, bookReviews) {
+    constructor(data, reviews=[]) {
         this.id = data.id;
         this.title = data.title;
         this.category = data.category;
@@ -7,7 +7,8 @@ class Book {
         this.image = data.image
         this.rating = data.rating
         this.likes = data.likes
-        this.reviews = bookReviews.map(review => review.comment)
+        this.reviews = reviews
+        // bookReviews.map(review => review.comment)
         Book.all.push(this)
     }
 
@@ -16,14 +17,13 @@ class Book {
         return `
             <div book-id=${this.id}>
                 <h2>Title: ${this.title}</h2>
-                <button id="edit-btn">Edit This Book</button>
                 <h2>Author: ${this.author}</h2>
                 <h2>Category: ${this.category}</h2>
                 <h2>Description: ${this.description}</h2>
                 <h2>Image: ${this.image}</h2>
                 <h2>Rating: ${this.rating}</h2>
                 <h2>likes: ${this.likes}</h2>
-                <h2>Reviews: ${this.reviews.forEach(review => console.log(review.comment))}</h2>
+                <h2>Reviews: ${this.reviews.comment}</h2>
             </div>
             <br>`;
     }

@@ -37,11 +37,12 @@ function createFormHandler(evnt) {
     const bookImageInput = document.querySelector("#input-image").value
     const bookRatingInput = document.querySelector("#input-rating").value
     const bookLikesInput = document.querySelector("#input-likes").value
-    postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput, bookImageInput, bookRatingInput, bookLikesInput)
+    const bookReviewInput = document.querySelector("#input-reviews").value
+    postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput, bookImageInput, bookRatingInput, bookLikesInput, bookReviewInput)
 }
 
-function postBook(title, author, category, description, image, rating, likes) {
-   const newBook = {title, author, category, description, image, rating, likes}
+function postBook(title, author, category, description, image, rating, likes, reviews) {
+   const newBook = {title, author, category, description, image, rating, likes, reviews}
    fetch(BOOKS_URL, {
        method: "POST",
        headers: {
@@ -52,7 +53,6 @@ function postBook(title, author, category, description, image, rating, likes) {
    })
    .then(response => response.json())
    .then(book => {
-    debugger
         let addBook = new Book(book, book.reviews)
         bookCollection.innerHTML += addBook.renderBooks()
         createBookForm.reset()
