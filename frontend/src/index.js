@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // when the page is load, what DOM I want to manipulate? load books
     getBooks()
     createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
-    theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
 });
 
 async function getBooks() {
@@ -66,6 +65,9 @@ function postBook(title, author, category, description, image, rating, likes) {
 // pull that book info & store in variables
 // feed the variables in editbook -> fetch
 // create editbook function in book class object just like renderbooks above
+
+theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
+
 function editBook(title, author, category, description, image, rating, likes) {
     const theBookToEdit = {title, author, category, description, image, rating, likes}
     fetch(BOOKS_URL + `/${id}`, {
@@ -78,6 +80,6 @@ function editBook(title, author, category, description, image, rating, likes) {
     })
     .then(response => response.json())
     .then(book => {
-        let editBook = 
+        let editBook
     })
 }
