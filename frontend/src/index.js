@@ -8,27 +8,24 @@ let bookCollection = document.querySelector('#book-collection')
 let theBookEditBtn = document.querySelector('#edit-btn')
 
 document.addEventListener('DOMContentLoaded', () => {
-    // when the page is load, what DOM I want to manipulate? load books
-    getBooks()
+    // when the page is load, what do I want to manipulate on DOM? load books and reviews
     createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
+    getBooks()
 });
 
 async function getBooks() {
     fetch(BOOKS_URL)
         .then(response => response.json())
         .then(books => {
-            if(books.message) {
-                alert(books.message)
-            } else 
             books.forEach(book => { 
-                let theBook = new Book(book)
-                bookCollection.innerHTML += theBook.renderBooks()
+                const theBook = new Book(book)
+                theBook.renderBooks();
             })
         })
         .catch((error) => alert(error.message));
 }
 
-function createFormHandler(evnt) {
+function createBookFormHandler(evnt) {
     evnt.preventDefault()
     const bookTitleInput = document.querySelector("#input-title").value
     const bookAuthorInput = document.querySelector("#input-author").value
@@ -37,12 +34,11 @@ function createFormHandler(evnt) {
     const bookImageInput = document.querySelector("#input-image").value
     const bookRatingInput = document.querySelector("#input-rating").value
     const bookLikesInput = document.querySelector("#input-likes").value
-    const bookReviewInput = document.querySelector("#input-reviews").value
-    postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput, bookImageInput, bookRatingInput, bookLikesInput, bookReviewInput)
+    postBook(bookTitleInput, bookAuthorInput, bookCategoryInput, bookDescriptionInput, bookImageInput, bookRatingInput, bookLikesInput)
 }
 
-function postBook(title, author, category, description, image, rating, likes, reviews) {
-   const newBook = {title, author, category, description, image, rating, likes, reviews}
+function postBook(title, author, category, description, image, rating, likes) {
+   const newBook = {title, author, category, description, image, rating, likes}
    fetch(BOOKS_URL, {
        method: "POST",
        headers: {
