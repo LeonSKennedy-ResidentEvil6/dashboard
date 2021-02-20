@@ -21,7 +21,7 @@ async function getBooks() {
                 alert(books.message)
             } else 
             books.forEach(book => { 
-                let theBook = new Book(book, book.reviews)
+                let theBook = new Book(book)
                 bookCollection.innerHTML += theBook.renderBooks()
             })
         })
