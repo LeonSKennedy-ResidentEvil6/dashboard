@@ -31,19 +31,39 @@
         <input id="input-image" type="text" name="image" placeholder="Enter a book's image url" class="input-text">
         <input id="input-rating" type="integer" name="rating" placeholder="Rate this book" class="input-text">
         <input id="input-likes" type="integer" name="likes" placeholder="Like this book" class="input-text">
-        <textarea id="input-reviews" name="reviews" placeholder="Write a review" required></textarea>
         <br>
-        <input type="submit" name="submit" value="Create a new book" class="submit">
+        <input id="create-button" type="submit" name="submit" value="Create a new book" class="submit">
         <br>
         <input type="reset" value="Reset input">
       </form>
+
+      <br>
+      <br>
+
+      <h2>Write a review </h2>
+
+      <form id="review-form" class="review-form">
+        <textarea id="input-reviews" name="reviews" placeholder="Write a review" required></textarea>
+        <label>Select a book to write review</label>
+        <select id="book-list" name="books"></select>
+  
+        <br>
+        <br>
+  
+        <input id="create-button" type="submit" name="submit" value="Post review">
+      </form>
+  
     </div>
-    <button id='new-book-btn'>Add a new book</button>
 
     <div id="book-collection">
-      <div id="reviewsList">
-        
+      <div id="book-selector" style="text-align: center;">
+        <h3 style="text-align: center;">Select a book to see reviews</h3>
       </div>
+
+      <br>
+      <br>
+        
+      <div id="form-container" class="single-form" style="text-align: center;"
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
