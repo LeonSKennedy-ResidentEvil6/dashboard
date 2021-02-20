@@ -4,12 +4,13 @@ const REVIEWS_URL = `${BASE_URL}/reviews`
 
 const addBookBtn = document.querySelector('#new-book-btn')
 const createBookForm = document.querySelector('#add-book-form')
+const createBookForm = document.querySelector('#add-review-form')
 let bookCollection = document.querySelector('#book-collection')
-let theBookEditBtn = document.querySelector('#edit-btn')
 
 document.addEventListener('DOMContentLoaded', () => {
     // when the page is load, what do I want to manipulate on DOM? load books and reviews
-    createBookForm.addEventListener("submit", (evnt) => createFormHandler(evnt))
+    createBookForm.addEventListener("submit", (evnt) => createBookFormHandler(evnt))
+    createReviewForm.addEventListener("submit", (evnt) => createReviewFormHandler(evnt))
     getBooks()
 });
 
@@ -49,34 +50,34 @@ function postBook(title, author, category, description, image, rating, likes) {
    })
    .then(response => response.json())
    .then(book => {
-        let addBook = new Book(book, book.reviews)
-        bookCollection.innerHTML += addBook.renderBooks()
-        createBookForm.reset()
+        const addBook = new Book(book)
+        addBook.renderBooks();
+        createBookForm.reset();
    })
    .catch((error) => alert(error.message));
 }
 
-// contiune...
-// create a edit form handler (ddoes prevent default needed here?)
-// create a edit form for each book
-// pull that book info & store in variables
-// feed the variables in editbook -> fetch
-// create editbook function in book class object just like renderbooks above
+function createReviewFormHandler(evnt) {
+    evnt.preventDefault()
+    const reivewInput = document.querySelector('#input-reviews').value
 
-//theBookEditBtn.addEventListener(click, (evnt) => editBook(evnt))
+    postReview(reivewInput)
+}
 
-function editBook(title, author, category, description, image, rating, likes) {
-    const theBookToEdit = {title, author, category, description, image, rating, likes}
-    fetch(BOOKS_URL + `/${id}`, {
-        method: 'PUT',
+function postReview(reivewInput) {
+    fetch(REVIEWS_URL, {
+        method: 'POST',
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(theBookToEdit)
+        body: JSON.stringify(reivewInput)
     })
     .then(response => response.json())
-    .then(book => {
-        let editBook
+    .then(review => {
+        let newReview = new Review(review.comment)
+        newReview.renderReview()
+        location.reload()
     })
+    .catch(error => {alert(error.message)})
 }
