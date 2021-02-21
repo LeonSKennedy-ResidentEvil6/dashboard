@@ -66,7 +66,8 @@ function createReviewFormHandler(evnt) {
 
 function renderReviews(evnt) {
     const reviewElement = document.querySelector('#review-container')
-    reviewElement.innerHTML = `Reviews for this book: ${evnt.target.innerText} <br><br>`
+    // Refresh how this works below: the target property: reference to the object onto which event was dispatched. evnt here is the bookButton
+    reviewElement.innerHTML = `Reviews for ${evnt.target.innerText}: <br><br>`
 }
 
 function postReview(reivewInput) {
