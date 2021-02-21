@@ -68,6 +68,21 @@ function renderReviews(evnt) {
     const reviewElement = document.querySelector('#review-container')
     // Refresh how this works below: the target property: reference to the object onto which event was dispatched. evnt here is the bookButton
     reviewElement.innerHTML = `Reviews for ${evnt.target.innerText}: <br><br>`
+
+    let deleteReview = document.createElement('button')
+    deleteReview.innerHTML = "Delete this review"
+    deleteReview.setAttribute('id', evnt.target.id)
+    deleteReview.addEventListener("click", (evnt) => deleteReview(evnt))
+    reviewElement.appendChild(deleteReview)
+
+    fetch(`${BOOKS_URL}/${evnt.target.id}`)
+    .then(response => response.json())
+    .then(reviews => {
+        let reviewComment = reviews.comment
+        let thisBookReviews = new Review(reviewComment)
+        thisBookReviews.renderReview()
+    })
+    .catch(error => { alert(error.message) })
 }
 
 function postReview(reivewInput) {
@@ -86,4 +101,8 @@ function postReview(reivewInput) {
         location.reload()
     })
     .catch(error => {alert(error.message)})
+}
+
+function deleteReview(evnt) {
+
 }
