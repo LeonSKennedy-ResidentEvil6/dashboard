@@ -61,6 +61,7 @@ body {
     border: #30c048 solid 1px;
     color: #e61425;
   }
+
   
   .book-container {
     padding: 1rem;
@@ -72,7 +73,12 @@ body {
   }
   
   .add-book-form {
-    width: 80%
+    width: 100%
+  }
+
+  .add-review-form {
+    background-color:wheat;
+    box-shadow: 0 20px 30px 0 rgb(236, 4, 4);
   }
   
   .submit {
