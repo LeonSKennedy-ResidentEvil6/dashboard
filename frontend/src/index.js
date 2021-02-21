@@ -59,9 +59,10 @@ function postBook(title, author, category, description, image, rating, likes) {
 
 function createReviewFormHandler(evnt) {
     evnt.preventDefault()
-    const reivewInput = document.querySelector('#input-reviews').value
+    const commentInput = document.querySelector('#input-reviews-comment').value
+    const bookId = parseInt(document.querySelector('#book-list').value)
 
-    postReview(reivewInput)
+    postReview(commentInput, bookId)
 }
 
 function renderReviews(evnt) {
@@ -85,18 +86,19 @@ function renderReviews(evnt) {
     .catch(error => { alert(error.message) })
 }
 
-function postReview(reivewInput) {
+function postReview(commentInput, bookId) {
+    const reviewObj = {commentInput, bookId}
     fetch(REVIEWS_URL, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(reivewInput)
+        body: JSON.stringify(reviewObj)
     })
     .then(response => response.json())
     .then(review => {
-        let newReview = new Review(review.comment)
+        let newReview = new Review(review)
         newReview.renderReview()
         location.reload()
     })
