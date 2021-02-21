@@ -64,6 +64,11 @@ function createReviewFormHandler(evnt) {
     postReview(reivewInput)
 }
 
+function renderReviews(evnt) {
+    const reviewElement = document.querySelector('#review-container')
+    reviewElement.innerHTML = `Reviews for this book: ${evnt.target.innerText} <br><br>`
+}
+
 function postReview(reivewInput) {
     fetch(REVIEWS_URL, {
         method: 'POST',
