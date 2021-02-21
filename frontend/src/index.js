@@ -4,7 +4,7 @@ const REVIEWS_URL = `${BASE_URL}/reviews`
 
 const addBookBtn = document.querySelector('#new-book-btn')
 const createBookForm = document.querySelector('#add-book-form')
-const createBookForm = document.querySelector('#add-review-form')
+const createReviewForm = document.querySelector('#add-review-form')
 let bookCollection = document.querySelector('#book-collection')
 
 document.addEventListener('DOMContentLoaded', () => {
