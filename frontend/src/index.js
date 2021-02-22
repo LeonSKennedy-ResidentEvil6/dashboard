@@ -107,5 +107,18 @@ function postReview(commentInput, bookId) {
 }
 
 function deleteReview(evnt) {
-
+    fetch(`${REVIEWS_URL}/${evnt.target.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .then(function(response) {
+        if (response.status = 204)
+        location.reload();
+        else 
+        console.log(response.status)
+    })
+    .catch(error => { alert(error.message) })
 }
