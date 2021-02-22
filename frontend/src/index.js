@@ -87,8 +87,8 @@ function renderReviews(evnt) {
     .catch(error => { alert(error.message) })
 }
 
-function postReview(commentInput, bookId) {
-    const reviewObj = {commentInput, bookId}
+function postReview(commentInput, book_id) {
+    const reviewObj = {commentInput, book_id}
     fetch(REVIEWS_URL, {
         method: 'POST',
         headers: {

@@ -1,7 +1,7 @@
 class Review {
     constructor(review) {
-        this.id = review.id,
-        this.comment = review.comment,
+        this.id = review.id
+        this.comment = review.comment
         this.book = review.book_id
 
         Review.all.push(this)
