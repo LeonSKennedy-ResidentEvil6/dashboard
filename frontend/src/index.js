@@ -78,10 +78,11 @@ function renderReviews(evnt) {
 
     fetch(`${BOOKS_URL}/${evnt.target.id}`)
     .then(response => response.json())
-    .then(reviews => {
-        let reviewComment = reviews.comment
-        let thisBookReviews = new Review(reviewComment)
-        thisBookReviews.renderReview()
+    .then(book => {
+        book.reviews.forEach(comment => {
+            let newComment = new Review(comment)
+            newComment.renderReview()
+        })
     })
     .catch(error => { alert(error.message) })
 }
