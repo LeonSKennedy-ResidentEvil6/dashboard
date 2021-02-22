@@ -10,7 +10,7 @@ class BookSerializer
     book_hash = {
       include: {
         reviews: {
-          only: [:comment, :book_id]
+          only: [:id, :comment, :book_id]
         }
       },
       except: [:created_at, :updated_at],
