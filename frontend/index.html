@@ -13,7 +13,7 @@
 
     <nav>
       <div class="nav-bar">
-        <h1 class="logo"><strong>Book lover</strong></h1>
+        <h1 class="logo"><strong>Book Lover Dashboard</strong></h1>
       </div>
     </nav>
 
@@ -42,9 +42,9 @@
 
       <h2>Write a review </h2>
 
-      <form id="add-review-form" class="add-review-form">
+      <form id="review-form" class="card-review-form">
 
-        <textarea id="input-reviews-comment" name="comment" placeholder="Write a review comment" required></textarea>
+        <textarea id="comment" type="text" name="comment" placeholder="Review comment" class="input-text"></textarea>
 
         <label>Select a book to write review</label>
         <select id="book-list" name="books"></select>
@@ -58,19 +58,19 @@
     </div>
 
     <div id="book-collection">
+
       <div id="book-selector" style="text-align: center;">
-        <h3 style="text-align: center;">Select a book to see reviews</h3>
+        <h2 style="text-align: left;">Select a book to see reviews</h2>
       </div>
 
       <br>
       <br>
         
-      <div id="review-container" class="review" style="text-align: center;">
+      <div id="review-container" class="review-card" style="text-align: left;">
 
       </div>
     </div>
-<!-- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
     <script type="text/javascript" src="./src/index.js"></script>
     <script type="text/javascript" src="./src/book.js"></script>
     <script type="text/javascript" src="./src/review.js"></script>

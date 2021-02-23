@@ -8,24 +8,24 @@ class Review {
     }
 
     renderReview() {
-        const reviewList = document.querySelector('#review-container')
-        const reviewMarkup =  `
+        const reviewContainer = document.querySelector('#review-container')
+        const cardMarkup =  `
             <br>
-            <div class="review" id=${this.id} style="border: 4px red">
+            <div class="review-card" id=${this.id} style="border: 4px red">
                 <h2>Review: ${this.comment}</h2>
             </div>
             <br>
         `;
 
         let reviewElement = document.createElement('div')
-        reviewElement.innerHTML = reviewMarkup
-        reviewList.appendChild(reviewElement)
+        reviewElement.innerHTML = cardMarkup
+        reviewContainer.appendChild(reviewElement)
 
         let deleteReview = document.createElement('button')
         deleteReview.setAttribute("id", this.id)
         deleteReview.innerHTML = "Delete this review"
-        deleteReview.addEventListener("click", (evnt) => deleteReview(evnt))
-        reviewList.appendChild(deleteReview)
+        deleteReview.addEventListener("click", (e) => deleteReview(e))
+        reviewContainer.appendChild(deleteReview)
     }
 
 }

@@ -12,18 +12,7 @@ class Book {
     }
 
     renderBooks() {
-        // return `
-        //     <div book-id=${this.id}>
-        //         <h2>Title: ${this.title}</h2>
-        //         <h2>Author: ${this.author}</h2>
-        //         <h2>Category: ${this.category}</h2>
-        //         <h2>Description: ${this.description}</h2>
-        //         <h2>Image: ${this.image}</h2>
-        //         <h2>Rating: ${this.rating}</h2>
-        //         <h2>likes: ${this.likes}</h2>
-        //         <h2>Reviews: ${this.renderReviews()}</h2>
-        //     </div>
-        //     <br>`;
+ 
         const bookList = document.querySelector('#book-list')
         const bookListMarkup = `${this.title}`
         let selection = document.createElement('option')
